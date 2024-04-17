@@ -14,6 +14,7 @@
     "Please confirm your password before continuing.": "続けるにはパスワードを確認してください",
     "Update Password": "パスワードの更新",
     "Ensure your account is using a long, random password to stay secure.": "十分に長くランダムなパスワードを使用して、アカウントのセキュリティを高めましょう",
+    "Is Admin": "管理者アカウント",
     "Save": "保存",
     "Saved.": "保存されました",
     "Already registered?": "既に登録済みの方",
@@ -137,5 +138,6 @@
     "per page": "毎ページ",
     "results": "件",
     "to": "から",
-    "Showing": "表示中："
+    "Showing": "表示中：",
+    "User List": "ユーザー一覧"
 }

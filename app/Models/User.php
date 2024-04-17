@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -43,5 +44,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * 一覧画面表示用にUsersテーブルから全てのデータを取得
+     */
+    public function findAllUsers()
+    {
+        return User::all();
     }
 }
