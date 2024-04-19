@@ -53,4 +53,23 @@ class User extends Authenticatable
     {
         return User::all();
     }
+
+    /**
+     * 更新処理
+     */
+    public function updateUser($request, $user)
+    {
+        $result = $user->fill([
+            'name' => $request->name,
+            'email' => $request->email
+        ])->save();
+    }
+
+    /**
+     * 削除処理
+     */
+    public function deleteUserById($id)
+    {
+        return $this->destroy($id);
+    }
 }
