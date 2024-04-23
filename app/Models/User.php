@@ -47,7 +47,7 @@ class User extends Authenticatable
     }
 
     /**
-     * 一覧画面表示用にUsersテーブルから全てのデータを取得
+     * 全てのユーザーデータを取得
      */
     public function findAllUsers()
     {

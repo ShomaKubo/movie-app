@@ -20,7 +20,7 @@ class UserListController extends Controller
     /**
      * ユーザー一覧画面の表示
      */
-    public function list(Request $request): View
+    public function list(): View
     {
         $users = $this->user->findAllUsers();
 
@@ -32,7 +32,7 @@ class UserListController extends Controller
      */
     public function edit($id): View
     {
-        $user = user::find($id);
+        $user = $this->user->find($id);
 
         return view('user-list.edit', compact('user'));
     }
@@ -42,7 +42,7 @@ class UserListController extends Controller
      */
     public function update(AdminProfileUpdateRequest $request, $id): RedirectResponse
     {
-        $user = User::find($id);
+        $user = $this->user->find($id);
         // 編集処理
         $this->user->updateUser($request, $user);
 
