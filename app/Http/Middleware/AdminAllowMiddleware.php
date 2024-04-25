@@ -19,7 +19,7 @@ class AdminAllowMiddleware
             return $next($request);
         }
 
-        //admin以外はdashboardにリダイレクトする
-        return redirect()->route('dashboard'); 
+        //admin以外は動画一覧にリダイレクトする
+        return redirect()->route('movie.top'); 
     }
 }
