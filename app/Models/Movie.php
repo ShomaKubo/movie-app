@@ -16,7 +16,9 @@ class Movie extends Model
      */
     protected $fillable = [
         'title',
-        'sab_title',
+        'sub_title',
+        'path',
+        'uploader',
         'delete_flg',
     ];
 
@@ -26,5 +28,18 @@ class Movie extends Model
     public function findAllMovies()
     {
         return Movie::all();
+    }
+
+    /**
+     * 全ての動画データを取得
+     */
+    public function store($title, $sub_title, $path)
+    {
+        Movie::create([
+            'title' => $title,
+            'sub_title' => $sub_title,
+            'path' => $path,
+            'uploader' => \Auth::user()->id,
+        ]);
     }
 }

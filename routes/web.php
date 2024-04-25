@@ -32,6 +32,10 @@ Route::middleware('auth')->group(function () {
 
     // 動画一覧画面
     Route::get('/movie', [MovieController::class, 'top'])->name('movie.top');
+    // 動画アップロード画面
+    Route::get('/movie/upload', [MovieController::class, 'upload'])->middleware('admin')->name('movie.upload');
+    // 動画アップロード処理
+    Route::post('/movie/store',[MovieController::class,'store'])->name('movie.store');
 });
 
 require __DIR__.'/auth.php';
