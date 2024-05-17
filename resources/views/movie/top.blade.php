@@ -21,8 +21,10 @@
                                 <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260">
                                 </a>
                                 <div class="mt-4">
-                                <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $movie->sub_title }}</h3>
-                                <h2 class="text-gray-900 title-font text-lg font-medium">{{ $movie->title }}</h2>
+                                    <a href="{{ route('movie.detail', $movie->id) }}">
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $movie->sub_title }}</h3>
+                                    <h2 class="text-gray-900 title-font text-lg font-medium">{{ $movie->title }}</h2>
+                                    </a>
                                 </div>
                             </div>
                         @endforeach

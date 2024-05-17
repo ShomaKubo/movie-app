@@ -1,0 +1,5 @@
+video {
+    width: 100%; /* 動画をレスポンシブ化 */
+    max-width: 800px;
+    max-height: 700px;
+}

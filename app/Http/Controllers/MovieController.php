@@ -52,4 +52,14 @@ class MovieController extends Controller
 
         return redirect()->route('movie.upload')->with('success', 'アップロードしました');
     }
+
+    /**
+     * 動画詳細画面の表示
+     */
+    public function detail($id): View
+    {
+        $movie = $this->movie->find($id);
+
+        return view('movie.detail', compact('movie'));
+    }
 }
