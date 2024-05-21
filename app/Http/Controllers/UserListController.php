@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MovieWatchLog;
 use App\Models\User;
 use App\Http\Requests\AdminProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class UserListController extends Controller
@@ -15,6 +13,7 @@ class UserListController extends Controller
     public function __construct()
     {
         $this->user = new User();
+        $this->movie_watch_log = new MovieWatchLog();
     }
 
     /**
@@ -56,6 +55,9 @@ class UserListController extends Controller
     {
         // 指定されたIDのレコードを削除
         $this->user->deleteUserById($id);
+
+        // 動画視聴ログを削除
+        $this->movie_watch_log->deleteMovieWatchLogByUserId($id);
 
         return redirect()->route('user-list.list');
     }

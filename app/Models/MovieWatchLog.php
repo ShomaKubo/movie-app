@@ -29,6 +29,14 @@ class MovieWatchLog extends Model
     }
 
     /**
+     * ユーザーIDと動画IDで動画視聴済みか判定
+     */
+    public static function existMovieWatchLog($user_id, $movie_id)
+    {
+        return MovieWatchLog::where(['user_id' => $user_id, 'movie_id' => $movie_id])->exists();
+    }
+
+    /**
      * 動画視聴ログデータを登録
      */
     public function store($user_id, $movie_id)

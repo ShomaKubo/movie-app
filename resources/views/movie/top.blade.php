@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    テスト{{ __("Movie List") }}
+                    {{ __("Movie List") }}
                 </div>
                 
                 <section class="text-gray-600 body-font">
@@ -21,10 +21,13 @@
                                 <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260">
                                 </a>
                                 <div class="mt-4">
+                                    @if ( \App\Models\MovieWatchLog::existMovieWatchLog(auth()->id(), $movie->id) )
+                                    <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1 text-right">{{ ("視聴済み") }}</h3>
+                                    @endif
                                     <a href="{{ route('movie.detail', $movie->id) }}">
                                     <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $movie->sub_title }}</h3>
                                     <h2 class="text-gray-900 title-font text-lg font-medium">{{ $movie->title }}</h2>
-                                    </a>
+                                    </a>         
                                 </div>
                             </div>
                         @endforeach
