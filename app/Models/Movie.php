@@ -31,7 +31,7 @@ class Movie extends Model
     }
 
     /**
-     * 全ての動画データを取得
+     * 動画データを登録
      */
     public function store($title, $sub_title, $path)
     {
