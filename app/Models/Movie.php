@@ -17,6 +17,7 @@ class Movie extends Model
     protected $fillable = [
         'title',
         'sub_title',
+        'summary',
         'path',
         'uploader',
         'delete_flg',
@@ -33,11 +34,12 @@ class Movie extends Model
     /**
      * 動画データを登録
      */
-    public function store($title, $sub_title, $path)
+    public function store($title, $sub_title, $summary, $path)
     {
         Movie::create([
             'title' => $title,
             'sub_title' => $sub_title,
+            'summary' => $summary,
             'path' => $path,
             'uploader' => \Auth::user()->id,
         ]);

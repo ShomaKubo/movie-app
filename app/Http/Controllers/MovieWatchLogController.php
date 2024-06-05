@@ -24,13 +24,7 @@ class MovieWatchLogController extends Controller
         $user_id = Auth::id();
 
         // DBに動画視聴ログ情報を登録
-        $result = $this->movie_watch_log->store($user_id, $movie_id);
-
-        if ($result) {
-            session()->flash('flash.success', '視聴完了しました。');
-        } else {
-            session()->flash('flash.danger', 'ログ保存に失敗しました。');
-        }
+        $this->movie_watch_log->store($user_id, $movie_id);
 
         return redirect('movie.detail', ['id' => $movie_id]);
     }

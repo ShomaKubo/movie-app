@@ -48,7 +48,7 @@ class MovieController extends Controller
         }
 
         // DBに動画情報を登録
-        $this->movie->store($request->title, $request->sub_title, $path);
+        $this->movie->store($request->title, $request->sub_title, $request->summary, $path);
 
         return redirect()->route('movie.upload')->with('success', 'アップロードしました');
     }

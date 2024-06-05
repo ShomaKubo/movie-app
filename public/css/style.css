@@ -3,3 +3,8 @@ video {
     max-width: 800px;
     max-height: 700px;
 }
+
+textarea {
+    width: 70%;
+    height: 100px;
+}

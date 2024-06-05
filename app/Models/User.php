@@ -59,7 +59,7 @@ class User extends Authenticatable
      */
     public function updateUser($request, $user)
     {
-        $result = $user->fill([
+        $user->fill([
             'name' => $request->name,
             'email' => $request->email
         ])->save();
