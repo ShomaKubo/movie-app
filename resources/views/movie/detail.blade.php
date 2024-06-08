@@ -33,7 +33,7 @@
                     <div class="flex flex-wrap -m-4">
                         <div class="lg:w-1/4 md:w-1/2 p-4">
                             <h1 class="text-gray-500 text-xl tracking-widest title-font">概要</h1>
-                            <h3 class="text-gray-500 text-xs tracking-widest title-font mt-2">{{ $movie->summary }}</h3>
+                            <h3 class="text-gray-500 text-base tracking-widest title-font mt-2">{{ $movie->summary }}</h3>
                         </div>
                     </div>
                 </div>
