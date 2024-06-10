@@ -22,12 +22,31 @@
                             @csrf
                             
                             <div><label class="col-form-label col-form-label-lg text-white">タイトル</label></div>
-                            <div><input class="text-black col-4" type="text" name="title"></div>
+                            <div>
+                                <input class="text-black col-4" type="text" name="title">
+                                <x-input-error class="mt-2" :messages="$errors->get('title')" />
+                            </div>
                             <div class="mt-4"><label class="col-form-label col-form-label-lg text-white">サブタイトル</label></div>
-                            <div><input class="text-black col-4" type="text" name="sub_title"></div>
+                            <div>
+                                <input class="text-black col-4" type="text" name="sub_title">
+                                <x-input-error class="mt-2" :messages="$errors->get('sub_title')" />
+                            </div>
                             <div class="mt-4"><label class="col-form-label col-form-label-lg text-white">概要</label></div>
-                            <div><textarea class="text-black" name="summary"></textarea></div>
-                            <div class="mt-8"><input type="file" id="movie" name="movie"></div>
+                            <div>
+                                <textarea class="text-black" name="summary"></textarea>
+                                <x-input-error class="mt-2" :messages="$errors->get('summary')" />
+                            </div>
+                            <div class="mt-4"><label class="col-form-label col-form-label-lg text-white">チャプター</label></div>
+                            <div>
+                                <select class="text-black col-4" name="chapter">
+                                @foreach(App\Models\Movie::CHAPTER as $i => $chapter)
+                                  <option value="{{ $i }}">{{ $chapter }}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                            <div class="mt-8"><input type="file" id="movie" name="movie">
+                                <x-input-error class="mt-2" :messages="$errors->get('movie')" />
+                            </div>
                             <div class="mt-8"><x-primary-button>{{ __('Save') }}</x-primary-button></div>
                             </form>          
                         </div>

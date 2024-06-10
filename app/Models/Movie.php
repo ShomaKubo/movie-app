@@ -9,6 +9,11 @@ class Movie extends Model
 {
     use HasFactory;
 
+    const CHAPTER = [
+        0 => 'AI基礎編',
+        1 => 'AI応用編',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -18,6 +23,7 @@ class Movie extends Model
         'title',
         'sub_title',
         'summary',
+        'chapter',
         'path',
         'uploader',
         'delete_flg',
@@ -34,12 +40,13 @@ class Movie extends Model
     /**
      * 動画データを登録
      */
-    public function store($title, $sub_title, $summary, $path)
+    public function store($title, $sub_title, $summary, $chapter, $path)
     {
         Movie::create([
             'title' => $title,
             'sub_title' => $sub_title,
             'summary' => $summary,
+            'chapter' => self::CHAPTER[$chapter],
             'path' => $path,
             'uploader' => \Auth::user()->id,
         ]);
