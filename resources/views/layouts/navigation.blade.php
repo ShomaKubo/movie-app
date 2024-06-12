@@ -25,6 +25,7 @@
                     <a class="dropdown-item" href="{{ route('profile.edit') }}"><i class="fa-regular fa-user"></i> {{ __('Profile') }}</a>
                     @if (Auth::user()->role == 'admin')
                         <a class="dropdown-item" href="{{ route('user-list.list') }}"><i class="fa-solid fa-list"></i> {{ __('User List') }}</a>
+                        <a class="dropdown-item" href="{{ route('movie-list.list') }}"><i class="fa-solid fa-list"></i> {{ __('Movie Manage List') }}</a>
                     @endif
 
                     <form method="POST" action="{{ route('logout') }}">

@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\MovieManageController;
 use App\Http\Controllers\MovieWatchLogController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserListController;
+use App\Http\Controllers\UserManageController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -24,13 +25,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // ユーザー一覧画面
-    Route::get('/user-list', [UserListController::class, 'list'])->middleware('admin')->name('user-list.list');
+    Route::get('/user-list', [UserManageController::class, 'list'])->middleware('admin')->name('user-list.list');
     // 編集画面
-    Route::get('/user-list/edit/{id}', [UserListController::class, 'edit'])->middleware('admin')->name('user-list.edit');
+    Route::get('/user-list/edit/{id}', [UserManageController::class, 'edit'])->middleware('admin')->name('user-list.edit');
     // 指定ユーザー編集処理
-    Route::post('/user-list/update/{id}', [UserListController::class, 'update'])->name('user-list.update');
+    Route::post('/user-list/update/{id}', [UserManageController::class, 'update'])->name('user-list.update');
     // 指定ユーザーの削除
-    Route::post('/user-list/destroy{id}', [UserListController::class, 'destroy'])->name('user-list.destroy');
+    Route::post('/user-list/destroy{id}', [UserManageController::class, 'destroy'])->name('user-list.destroy');
 
     // 動画一覧画面
     Route::get('/movie', [MovieController::class, 'top'])->name('movie.top');
@@ -42,6 +43,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/movie/store',[MovieController::class, 'store'])->name('movie.store');
     // Ajaxで動画視聴記録を保存
     Route::post('/movie/detail/addLog/{id}', [MovieWatchLogController::class, 'addMovieLog'])->name('movie-watch-log.addLog');
+
+    // 動画一覧画面（管理用）
+    Route::get('/movie-list', [MovieManageController::class, 'list'])->middleware('admin')->name('movie-list.list');
+    // 指定ユーザーの削除
+    Route::post('/movie-list/destroy{id}', [MovieManageController::class, 'destroy'])->name('movie-list.destroy');
 });
 
 require __DIR__.'/auth.php';

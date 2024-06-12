@@ -51,4 +51,12 @@ class Movie extends Model
             'uploader' => \Auth::user()->id,
         ]);
     }
+
+    /**
+     * 削除処理
+     */
+    public function deleteMovieById($id)
+    {
+        return $this->destroy($id);
+    }
 }

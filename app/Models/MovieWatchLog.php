@@ -55,4 +55,12 @@ class MovieWatchLog extends Model
     {
         MovieWatchLog::where('user_id', $user_id)->delete();
     }
+
+    /**
+     * 動画IDで動画視聴ログデータを削除
+     */
+    public function deleteMovieWatchLogByMovieId($movie_id)
+    {
+        MovieWatchLog::where('movie_id', $movie_id)->delete();
+    }
 }

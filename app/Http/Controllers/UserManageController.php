@@ -6,9 +6,10 @@ use App\Models\MovieWatchLog;
 use App\Models\User;
 use App\Http\Requests\AdminProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
+
 use Illuminate\View\View;
 
-class UserListController extends Controller
+class UserManageController extends Controller
 {
     public function __construct()
     {
@@ -29,9 +30,9 @@ class UserListController extends Controller
     /**
      * 編集画面の表示
      */
-    public function edit($id): View
+    public function edit($user_id): View
     {
-        $user = $this->user->find($id);
+        $user = $this->user->find($user_id);
 
         return view('user-list.edit', compact('user'));
     }
@@ -39,9 +40,9 @@ class UserListController extends Controller
     /**
      * IDでユーザーを編集
      */
-    public function update(AdminProfileUpdateRequest $request, $id): RedirectResponse
+    public function update(AdminProfileUpdateRequest $request, $user_id): RedirectResponse
     {
-        $user = $this->user->find($id);
+        $user = $this->user->find($user_id);
         // 編集処理
         $this->user->updateUser($request, $user);
 
@@ -51,13 +52,13 @@ class UserListController extends Controller
     /**
      * IDでユーザーを削除
      */
-    public function destroy($id): RedirectResponse
+    public function destroy($user_id): RedirectResponse
     {
         // 指定されたIDのレコードを削除
-        $this->user->deleteUserById($id);
+        $this->user->deleteUserById($user_id);
 
         // 動画視聴ログを削除
-        $this->movie_watch_log->deleteMovieWatchLogByUserId($id);
+        $this->movie_watch_log->deleteMovieWatchLogByUserId($user_id);
 
         return redirect()->route('user-list.list');
     }

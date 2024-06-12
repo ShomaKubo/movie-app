@@ -11,7 +11,7 @@
 
             <table class="table table-hover table-striped mb-auto">
                 <thead class="table-primary">
-                    <tr>
+                    <tr class="text-center">
                         <th>名前</th>
                         <th>E-Mail</th>
                         <th>ロール</th>
@@ -24,7 +24,7 @@
                     <tr v-for="user in users">
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
-                        <td>{{ $user->role == 'admin' ? '管理者' : '一般' }}</td>
+                        <td class="text-center">{{ $user->role == 'admin' ? '管理者' : '一般' }}</td>
                         <td class="text-right">
                         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                             <a href="{{ route('user-list.edit', ['id'=>$user->id]) }}" class="btn btn-info">編集</a>

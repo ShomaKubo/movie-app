@@ -8,3 +8,27 @@ textarea {
     width: 70%;
     height: 100px;
 }
+
+/* .slick-track {
+    width: 101%!important; 
+} */
+
+table .w-20 {
+    width: 20%;
+}
+
+table .w-25 {
+    width: 25%;
+}
+
+table .turn {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 0;
+    border-bottom: unset;
+}
+
+table .chapter {
+    width: 20%;
+}
