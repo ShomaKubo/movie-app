@@ -44,8 +44,13 @@
                                 @endforeach
                                 </select>
                             </div>
-                            <div class="mt-8"><input type="file" id="movie" name="movie">
+                            <div class="mt-8"><label class="col-form-label col-form-label-lg text-white">動画ファイル</label></div>
+                            <div><input type="file" id="movie" name="movie">
                                 <x-input-error class="mt-2" :messages="$errors->get('movie')" />
+                            </div>
+                            <div class="mt-8"><label class="col-form-label col-form-label-lg text-white">サムネイル画像</label></div>
+                            <div><input type="file" id="thumbnail" name="thumbnail">
+                                <x-input-error class="mt-2" :messages="$errors->get('thumbnail')" />
                             </div>
                             <div class="mt-8"><x-primary-button>{{ __('Save') }}</x-primary-button></div>
                             </form>          

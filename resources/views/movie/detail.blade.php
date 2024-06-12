@@ -14,7 +14,7 @@
                         <div class="flex flex-wrap -m-4">
                             <div class="lg:w-1/4 md:w-1/2 p-4">
                                 <video id="video" controls>
-                                    <source src="{{ asset('storage/' . $movie->path) }}" type="video/mp4">
+                                    <source src="{{ asset('storage/' . $movie->movie_path) }}" type="video/mp4">
                                 </video>
                                 <div class="text-gray-900 title-font text-xl font-medium mt-4">
                                     {{ $movie->title }}

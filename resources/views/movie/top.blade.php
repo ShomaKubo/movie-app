@@ -20,7 +20,7 @@
                             @if ($chapter == $movie->chapter)
                             <div class="lg:w-1/4 md:w-1/2 p-4">
                                 <a class="block relative h-48 rounded overflow-hidden">
-                                <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260">
+                                <img class="object-cover object-center w-full h-full block" src="{{ Storage::url($movie->thumbnail_path) }}">
                                 </a>
                                 <div class="mt-4">
                                     @if ( \App\Models\MovieWatchLog::existMovieWatchLog(auth()->id(), $movie->id) )

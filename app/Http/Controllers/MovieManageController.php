@@ -33,15 +33,15 @@ class MovieManageController extends Controller
     {
         $movie = $this->movie->find($movie_id);
 
-        if (!is_null($movie) && Storage::exists('public/' . $movie->path)) {
+        if (!is_null($movie) && Storage::exists('public/' . $movie->movie_path)) {
             // 指定されたIDのレコードを削除
             $this->movie->deleteMovieById($movie_id);
 
             // 動画視聴ログを削除
             $this->movie_watch_log->deleteMovieWatchLogByMovieId($movie_id);
 
-            // ストレージから動画を削除
-            Storage::delete('public/' . $movie->path);
+            // ストレージから動画とサムネイル画像を削除
+            Storage::delete(['public/' . $movie->movie_path, 'public/' . $movie->thumbnail_path]);
         } else {
 
             return redirect()->route('movie-list.list')->with('error', '動画の削除に失敗しました');

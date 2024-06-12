@@ -24,7 +24,8 @@ class Movie extends Model
         'sub_title',
         'summary',
         'chapter',
-        'path',
+        'movie_path',
+        'thumbnail_path',
         'uploader',
         'delete_flg',
     ];
@@ -40,14 +41,15 @@ class Movie extends Model
     /**
      * 動画データを登録
      */
-    public function store($title, $sub_title, $summary, $chapter, $path)
+    public function store($title, $sub_title, $summary, $chapter, $movie_path, $thumbnail_path)
     {
         Movie::create([
             'title' => $title,
             'sub_title' => $sub_title,
             'summary' => $summary,
             'chapter' => self::CHAPTER[$chapter],
-            'path' => $path,
+            'movie_path' => $movie_path,
+            'thumbnail_path' => $thumbnail_path,
             'uploader' => \Auth::user()->id,
         ]);
     }

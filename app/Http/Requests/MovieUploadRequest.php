@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class MovieUploadRequest extends FormRequest
 {
@@ -15,21 +14,26 @@ class MovieUploadRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => ['max:255'],
+            'title' => ['required', 'max:255'],
             'sub_title' => ['max:255'],
             'summary' => ['max:255'],
             'movie' => ['required','file','mimes:mp4,mov,x-ms-wmv,mpeg,avi','max:1000000'],
+            'thumbnail' => ['required','file','mimes:jpg,jpeg,png','max:1000'],
         ];
     }
 
     public function messages(){
         return [
+            'title.required' => 'タイトルを入力してください',
             'title.max' => 'タイトルは255文字以内で入力してください',
             'sub_title.max' => 'サブタイトルは255文字以内で入力してください',
             'summary.max' => '概要は255文字以内で入力してください',
             'movie.required' => '動画ファイルを選択してください',
             'movie.mimes' => '無効な拡張子です',
-            'movie.max' => '動画ファイルのサイズが大きすぎます'
+            'movie.max' => '動画ファイルのサイズが大きすぎます',
+            'thumbnail.required' => 'サムネイル画像を選択してください',
+            'thumbnail.mimes' => '無効な拡張子です',
+            'thumbnail.max' => 'サムネイル画像のサイズが大きすぎます',
         ];
       }
 }

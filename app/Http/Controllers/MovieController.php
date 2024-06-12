@@ -39,16 +39,25 @@ class MovieController extends Controller
     public function store(MovieUploadRequest $request): RedirectResponse
     {
         // 動画ファイル投稿用のパス
-        $path = '';
+        $movie_path = '';
         $movie = $request->file('movie');
         if(isset($movie) === true)
         {
             // storage/app/public/videosにパスを保存
-            $path = $movie->store('videos','public');
+            $movie_path = $movie->store('videos','public');
+        }
+
+        // サムネイル画像投稿用のパス
+        $thumbnail_path = '';
+        $thumbnail = $request->file('thumbnail');
+        if(isset($thumbnail) === true)
+        {
+            // storage/app/public/thumbnailsにパスを保存
+            $thumbnail_path = $thumbnail->store('thumbnails','public');
         }
 
         // DBに動画情報を登録
-        $this->movie->store($request->title, $request->sub_title, $request->summary, $request->chapter, $path);
+        $this->movie->store($request->title, $request->sub_title, $request->summary, $request->chapter, $movie_path, $thumbnail_path);
 
         return redirect()->route('movie.upload')->with('success', 'アップロードしました');
     }
