@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('title')->comment('タイトル');
             $table->string('sub_title')->nullable()->comment('サブタイトル');
-            $table->string('path')->nullable()->comment('パス');
+            $table->string('summary')->nullable()->comment('概要');
+            $table->string('chapter')->nullable()->comment('チャプター');
+            $table->string('movie_path')->comment('動画パス');
+            $table->string('thumbnail_path')->comment('サムネイルパス');
             $table->integer('uploader')->comment('アップロード実行者');
-            $table->integer('delete_flg')->default(0)->comment('削除フラグ[0:未削除 1:削除済み]');
             $table->timestamp('updated_at')->useCurrent()->nullable();
             $table->timestamp('created_at')->useCurrent()->nullable();
-            $table->softDeletes();
         });
 
         
