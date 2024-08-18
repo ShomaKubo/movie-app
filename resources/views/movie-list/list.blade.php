@@ -25,10 +25,11 @@
             <table class="table table-hover table-striped mb-auto">
                 <thead class="table-primary">
                     <tr class="text-center">
-                        <th class="w-20">タイトル</th>
-                        <th class="w-20">サブタイトル</th>
-                        <th class="w-25">概要</th>
-                        <th class="w-20">チャプター</th>
+                        <th class="w-20">{{ __('Movie Title') }}</th>
+                        <th class="w-20">{{ __('Movie Sub Title') }}</th>
+                        <th class="w-25">{{ __('Movie Summary') }}</th>
+                        <th class="w-20">{{ __('Movie Chapter') }}</th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -39,6 +40,11 @@
                         <td class="turn">{{ $movie->sub_title }}</td>
                         <td class="turn">{{ $movie->summary }}</td>
                         <td class="text-center">{{ $movie->chapter }}</td>
+                        <td class="text-right">
+                            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                <a href="{{ route('movie-list.edit', ['id'=>$movie->id]) }}" class="btn btn-info">編集</a>
+                            </div>
+                        </td>
                         <td>
                             <form action="{{ route('movie-list.destroy', ['id'=>$movie->id]) }}" method="POST">
                             @csrf

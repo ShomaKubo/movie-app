@@ -12,9 +12,9 @@
             <table class="table table-hover table-striped mb-auto">
                 <thead class="table-primary">
                     <tr class="text-center">
-                        <th>名前</th>
-                        <th>E-Mail</th>
-                        <th>ロール</th>
+                        <th class="w-25">名前</th>
+                        <th class="w-25">E-Mail</th>
+                        <th class="w-25">ロール</th>
                         <th></th>
                         <th></th>
                     </tr>

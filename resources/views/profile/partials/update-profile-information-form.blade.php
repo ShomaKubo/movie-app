@@ -1,7 +1,7 @@
 <section>
     <header>
         <h2 class="text-lg font-medium">
-            {{ __('Profile Information') }}
+            {{ __('Profile Information Edit') }}
         </h2>
     </header>
 
@@ -15,13 +15,13 @@
 
         <div>
             <x-input-label for="name" class="form-label" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full text-black" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full text-black" :value="old('name', $user->name)" required autofocus />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
         <div>
             <x-input-label for="email" class="form-label" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full text-black" :value="old('email', $user->email)" required autocomplete="username" />
+            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full text-black" :value="old('email', $user->email)" required />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())

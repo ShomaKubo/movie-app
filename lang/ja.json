@@ -2,6 +2,7 @@
     "Name": "名前",
     "Profile": "アカウント",
     "Profile Information": "アカウント情報",
+    "Profile Information Edit": "アカウント情報編集",
     "Cancel": "キャンセル",
     "Delete Account": "アカウントを削除",
     "Email": "メールアドレス",
@@ -143,5 +144,13 @@
     "Movie List": "動画一覧",
     "Movie Manage List": "動画一覧(管理用)",
     "Movie Upload": "動画アップロード",
-    "Movie Detail": "動画詳細"
+    "Movie Title": "タイトル",
+    "Movie Sub Title": "サブタイトル",
+    "Movie Summary": "動画概要",
+    "Movie Chapter": "チャプター",
+    "Movie File": "動画ファイル",
+    "Movie Thumbnail": "サムネイル画像",
+    "Movie Detail": "動画詳細",
+    "Movie Information": "動画情報",
+    "Movie Information Edit": "動画情報編集"
 }

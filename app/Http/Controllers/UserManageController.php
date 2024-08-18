@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminProfileUpdateRequest;
 use App\Models\MovieWatchLog;
 use App\Models\User;
-use App\Http\Requests\AdminProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 
 use Illuminate\View\View;

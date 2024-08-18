@@ -59,6 +59,10 @@ class MovieController extends Controller
         // DBに動画情報を登録
         $this->movie->store($request->title, $request->sub_title, $request->summary, $request->chapter, $movie_path, $thumbnail_path);
 
+        // 二重送信防止
+        $request->session()->regenerateToken();
+
+
         return redirect()->route('movie.upload')->with('success', 'アップロードしました');
     }
 
