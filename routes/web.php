@@ -46,6 +46,10 @@ Route::middleware('auth')->group(function () {
 
     // 動画一覧画面（管理用）
     Route::get('/movie-list', [MovieManageController::class, 'list'])->middleware('admin')->name('movie-list.list');
+    // 動画編集画面
+    Route::get('/movie-list/edit/{id}', [MovieManageController::class, 'edit'])->middleware('admin')->name('movie-list.edit');
+    // 動画編集処理
+    Route::post('/movie-list/update/{id}', [MovieManageController::class, 'update'])->name('movie-list.update');
     // 指定ユーザーの削除
     Route::post('/movie-list/destroy{id}', [MovieManageController::class, 'destroy'])->name('movie-list.destroy');
 });

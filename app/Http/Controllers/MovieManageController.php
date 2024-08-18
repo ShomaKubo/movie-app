@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AdminMovieUpdateRequest;
 use App\Models\MovieWatchLog;
 use App\Models\Movie;
 use Illuminate\Http\RedirectResponse;
@@ -24,6 +25,28 @@ class MovieManageController extends Controller
         $movies = $this->movie->findAllMovies();
 
         return view('movie-list.list', compact('movies'));
+    }
+
+    /**
+     * 編集画面の表示
+     */
+    public function edit($movie_id): View
+    {
+        $movie = $this->movie->find($movie_id);
+
+        return view('movie-list.edit', compact('movie'));
+    }
+
+    /**
+     * IDで動画を編集
+     */
+    public function update(AdminMovieUpdateRequest $request, $movie_id): RedirectResponse
+    {
+        $movie = $this->movie->find($movie_id);
+        // 編集処理
+        $this->movie->updateMovie($request, $movie);
+
+        return redirect()->route('movie-list.list');
     }
 
     /**

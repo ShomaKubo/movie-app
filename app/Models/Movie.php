@@ -27,7 +27,6 @@ class Movie extends Model
         'movie_path',
         'thumbnail_path',
         'uploader',
-        'delete_flg',
     ];
 
     /**
@@ -52,6 +51,18 @@ class Movie extends Model
             'thumbnail_path' => $thumbnail_path,
             'uploader' => \Auth::user()->id,
         ]);
+    }
+
+    /**
+     * 更新処理
+     */
+    public function updateMovie($request, $movie)
+    {
+        $movie->fill([
+            'title' => $request->title,
+            'sub_title' => $request->sub_title,
+            'summary' => $request->summary
+        ])->save();
     }
 
     /**
