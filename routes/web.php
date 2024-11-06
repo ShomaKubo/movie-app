@@ -5,6 +5,7 @@ use App\Http\Controllers\MovieManageController;
 use App\Http\Controllers\MovieWatchLogController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserManageController;
+use App\Http\Controllers\UserProgressController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,11 +27,11 @@ Route::middleware('auth')->group(function () {
 
     // ユーザー一覧画面
     Route::get('/user-list', [UserManageController::class, 'list'])->middleware('admin')->name('user-list.list');
-    // 編集画面
+    // ユーザー編集画面
     Route::get('/user-list/edit/{id}', [UserManageController::class, 'edit'])->middleware('admin')->name('user-list.edit');
-    // 指定ユーザー編集処理
+    // ユーザー編集処理
     Route::post('/user-list/update/{id}', [UserManageController::class, 'update'])->name('user-list.update');
-    // 指定ユーザーの削除
+    // ユーザーの削除
     Route::post('/user-list/destroy{id}', [UserManageController::class, 'destroy'])->name('user-list.destroy');
 
     // 動画一覧画面
@@ -50,8 +51,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/movie-list/edit/{id}', [MovieManageController::class, 'edit'])->middleware('admin')->name('movie-list.edit');
     // 動画編集処理
     Route::post('/movie-list/update/{id}', [MovieManageController::class, 'update'])->name('movie-list.update');
-    // 指定ユーザーの削除
+    // 動画の削除
     Route::post('/movie-list/destroy{id}', [MovieManageController::class, 'destroy'])->name('movie-list.destroy');
+
+    // ユーザー進捗一覧画面
+    Route::get('/user-progress', [UserProgressController::class, 'list'])->middleware('admin')->name('user-progress.list');
+    // ユーザー進捗詳細画面
+    Route::get('/user-progress/detail/{id}', [UserProgressController::class, 'detail'])->middleware('admin')->name('user-progress.detail');
 });
 
 require __DIR__.'/auth.php';

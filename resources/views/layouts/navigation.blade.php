@@ -26,6 +26,7 @@
                     @if (Auth::user()->role == 'admin')
                         <a class="dropdown-item" href="{{ route('user-list.list') }}"><i class="fa-solid fa-list"></i> {{ __('User List') }}</a>
                         <a class="dropdown-item" href="{{ route('movie-list.list') }}"><i class="fa-solid fa-list"></i> {{ __('Movie Manage List') }}</a>
+                        <a class="dropdown-item" href="{{ route('user-progress.list') }}"><i class="fa-solid fa-list"></i> {{ __('User Progress List') }}</a>
                     @endif
 
                     <form method="POST" action="{{ route('logout') }}">

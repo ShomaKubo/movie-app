@@ -1,4 +1,6 @@
 {
+    "Id": "ID",
+    "User Id": "ユーザーID",
     "Name": "名前",
     "Profile": "アカウント",
     "Profile Information": "アカウント情報",
@@ -143,6 +145,9 @@
     "User List": "ユーザー一覧",
     "Movie List": "動画一覧",
     "Movie Manage List": "動画一覧(管理用)",
+    "Progress": "進捗",
+    "User Progress List": "ユーザー進捗",
+    "Progress Detail": "の進捗詳細",
     "Movie Upload": "動画アップロード",
     "Movie Title": "タイトル",
     "Movie Sub Title": "サブタイトル",
@@ -152,5 +157,7 @@
     "Movie Thumbnail": "サムネイル画像",
     "Movie Detail": "動画詳細",
     "Movie Information": "動画情報",
-    "Movie Information Edit": "動画情報編集"
+    "Movie Information Edit": "動画情報編集",
+    "Movie Watch State": "視聴状況",
+    "Movie Watch Date": "視聴日時"
 }

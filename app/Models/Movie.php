@@ -11,7 +11,7 @@ class Movie extends Model
 
     const CHAPTER = [
         0 => 'AI基礎編',
-        1 => 'AI応用編',
+        // 1 => 'AI応用編',
     ];
 
     /**
@@ -35,6 +35,18 @@ class Movie extends Model
     public function findAllMovies()
     {
         return Movie::all();
+    }
+
+    /**
+     * 全ての動画タイトルと指定ユーザーの進捗状況を取得
+     */
+    public function findAllMoviesUserProgress($user_id)
+    {
+        return Movie::leftJoin('movie_watch_logs', function($join) use ($user_id){
+            $join->on('movies.id', '=', 'movie_watch_logs.movie_id')
+              ->where('movie_watch_logs.user_id', '=', $user_id);
+            })
+            ->get(['movies.title', 'movie_watch_logs.movie_id as watched_movie_id', 'movie_watch_logs.created_at as watched_at']);
     }
 
     /**
