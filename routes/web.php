@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
     // ユーザー進捗一覧画面
     Route::get('/user-progress', [UserProgressController::class, 'list'])->middleware(AdminAllow::class)->name('user-progress.list');
     // ユーザー進捗詳細画面
-    Route::get('/user-progress/detail/{id}', [UserProgressController::class, 'detail'])->middleware(AdminAllow::class)->name('user-progress.detail');
+    Route::get('/user-progress/detail/{id}', [UserProgressController::class, 'detail'])->name('user-progress.detail');
 });
 
 require __DIR__.'/auth.php';

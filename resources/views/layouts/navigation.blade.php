@@ -9,7 +9,7 @@
                 <x-application-logo class="block h-9 w-auto fill-current" />
             </a>
         </div>
-        <div class="collapse navbar-collapse ms-4" id="navbarColor03">
+        <div class="navbar-collapse ms-4" id="navbarColor03">
             <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('movie.top') }}"><i class="fa-solid fa-video"></i> {{ __('Movie List') }}</a>
@@ -27,6 +27,8 @@
                         <a class="dropdown-item" href="{{ route('user-list.list') }}"><i class="fa-solid fa-list"></i> {{ __('User List') }}</a>
                         <a class="dropdown-item" href="{{ route('movie-list.list') }}"><i class="fa-solid fa-list"></i> {{ __('Movie Manage List') }}</a>
                         <a class="dropdown-item" href="{{ route('user-progress.list') }}"><i class="fa-solid fa-list"></i> {{ __('User Progress List') }}</a>
+                    @else
+                        <a class="dropdown-item" href="{{ route('user-progress.detail', ['id'=>Auth::id()]) }}"><i class="fa-solid fa-list"></i>{{ __('User Progress List') }}</a>
                     @endif
 
                     <form method="POST" action="{{ route('logout') }}">
