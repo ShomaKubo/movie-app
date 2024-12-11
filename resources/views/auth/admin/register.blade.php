@@ -1,5 +1,8 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+
+    <h5 class="text-warning">管理者アカウント作成</h5>
+
+    <form method="POST" action="{{ route('admin.register') }}">
         @csrf
 
         <!-- Name -->
