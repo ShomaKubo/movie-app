@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Http\Requests\MovieUploadRequest;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 
@@ -44,7 +45,10 @@ class MovieController extends Controller
         if(isset($movie) === true)
         {
             // storage/app/public/videosにパスを保存
-            $movie_path = $movie->store('videos','public');
+            //$movie_path = $movie->store('videos','public');
+
+            $movie_path = Storage::disk('s3')->putFile('/movie', $movie);
+            $movie_path = Storage::disk('s3')->url($movie_path);
         }
 
         // サムネイル画像投稿用のパス
@@ -53,7 +57,10 @@ class MovieController extends Controller
         if(isset($thumbnail) === true)
         {
             // storage/app/public/thumbnailsにパスを保存
-            $thumbnail_path = $thumbnail->store('thumbnails','public');
+            //$thumbnail_path = $thumbnail->store('thumbnails','public');
+
+            $thumbnail_path = Storage::disk('s3')->putFile('/thumbnail', $thumbnail);
+            $thumbnail_path = Storage::disk('s3')->url($thumbnail_path);
         }
 
         // DBに動画情報を登録
