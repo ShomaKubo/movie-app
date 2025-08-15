@@ -15,11 +15,11 @@
                             {{ __(App\Models\Movie::CHAPTER[0] ?? 'Unknown Chapter') }}
                         </div>
                         {{-- スライダーのコンテナは動画ループの外側に配置 --}}
-                        <div class="flex flex-wrap movie-slick -m-4 w-fit">
+                        <div class="movie-slick -m-4">
                             @foreach($movies as $movie)
                                 {{-- 各動画カードがスライダーの1要素になる --}}
-                                <div class="lg:w-1/4 md:w-1/2 p-4">
-                                    <a class="block relative h-48 rounded overflow-hidden" href="{{ route('movie.detail', $movie->id) }}">
+                                <div class="p-4">
+                                    <a class="block relative rounded overflow-hidden" href="{{ route('movie.detail', $movie->id) }}">
                                         <img class="object-cover object-center w-full h-full block" src="{{ asset('storage/' . $movie->thumbnail_path) }}">
                                     </a>
                                     <div class="mt-4">

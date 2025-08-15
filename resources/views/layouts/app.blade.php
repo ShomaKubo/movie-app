@@ -20,8 +20,8 @@
         <script src="https://kit.fontawesome.com/ef3537059d.js" crossorigin="anonymous"></script>
 
         <!-- slick -->
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css">
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/slick.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/slick-theme.css') }}">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     </head>
     <body class="font-sans antialiased">
