@@ -20,7 +20,7 @@
                 </thead>
                 <tbody>
                 @foreach($movies as $movie)
-                    <tr v-for="movie in movies">
+                    <tr>
                         <td class="turn">{{ $movie->title }}</td>
 
                         @if(!is_null($movie->watched_movie_id))

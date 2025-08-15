@@ -10,7 +10,7 @@
             <div class="bg-dark overflow-hidden shadow-sm sm:rounded-lg">
              
                 <section class="body-font">
-                    <div class="container px-5 py-24 mx-auto">
+                    <div class="container px-5 py-12 mx-auto">
                         <div class="p-4">
                             @if(session('success'))
                                 <div class="alert alert-success">

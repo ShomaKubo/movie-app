@@ -20,7 +20,7 @@
                 </thead>
                 <tbody>
                 @foreach($users as $user)
-                    <tr v-for="user in users">
+                    <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td class="text-center">{{ $user->watch_count . ' 本視聴済み / 全 ' . $movie_count . ' 本' }}</td>
