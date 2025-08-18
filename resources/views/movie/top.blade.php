@@ -11,8 +11,8 @@
 
                 <section class="text-gray-600 body-font">
                     <div class="container px-5 py-12 mx-auto">
-                        <div class="pt-8 px-6 text-gray-900 text-xl">
-                            {{ __(App\Models\Movie::CHAPTER[0] ?? 'Unknown Chapter') }}
+                        <div class="px-6">
+                            <h2 class="text-gray-900 text-2xl">{{__('AI Basics') }}</h2>
                         </div>
                         {{-- スライダーのコンテナは動画ループの外側に配置 --}}
                         <div class="movie-slick -m-4">
@@ -24,11 +24,11 @@
                                     </a>
                                     <div class="mt-4">
                                         <a href="{{ route('movie.detail', $movie->id) }}">
-                                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $movie->sub_title }}</h3>
-                                            <h2 class="text-gray-900 title-font text-lg font-medium">{{ $movie->title }}</h2>
+                                            <h3 class="text-gray-500 text-xl tracking-widest title-font mb-1">{{ $movie->sub_title }}</h3>
+                                            <h2 class="text-gray-900 title-font text-2xl font-medium">{{ $movie->title }}</h2>
                                         </a>
                                     @if ( \App\Models\MovieWatchLog::existMovieWatchLog(auth()->id(), $movie->id) )
-                                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1 text-right">{{ ("視聴済み") }}</h3>
+                                        <h3 class="text-gray-500 text-lg tracking-widest title-font mb-1 text-left">{{ ("視聴済み") }}</h3>
                                         @endif
                                     </div>
                                 </div>

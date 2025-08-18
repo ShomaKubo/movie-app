@@ -9,6 +9,11 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        <!-- slick -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/slick.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('/css/slick-theme.css') }}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -17,12 +22,8 @@
 
         <!-- Scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="{{ asset('/js/slick.min.js') }}"></script>
         <script src="https://kit.fontawesome.com/ef3537059d.js" crossorigin="anonymous"></script>
-
-        <!-- slick -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('/css/slick.css') }}"/>
-        <link rel="stylesheet" type="text/css" href="{{ asset('/css/slick-theme.css') }}">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
