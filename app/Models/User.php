@@ -47,6 +47,14 @@ class User extends Authenticatable
     }
 
     /**
+     * ユーザーの動画視聴ログを取得する
+     */
+    public function movieWatchLogs()
+    {
+        return $this->hasMany(MovieWatchLog::class);
+    }
+
+    /**
      * 全てのユーザーデータを取得
      */
     public function findAllUsers()
@@ -59,10 +67,8 @@ class User extends Authenticatable
      */
     public function findAllUserProgress()
     {
-        return User::leftJoin('movie_watch_logs', 'users.id', '=', 'movie_watch_logs.user_id')
-            ->select(User::raw('count(*) as watch_count, users.id, users.name'))
-            ->groupBy('users.id')
-            ->OrderBy('users.id')
+        return User::withCount('movieWatchLogs as watch_count')
+            ->orderBy('id')
             ->get();
     }
 
