@@ -5,11 +5,11 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="top_window">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="bg-dark overflow-hidden shadow-sm sm:rounded-lg">
                 <section class="body-font">
-                    <div class="container px-5 py-24 mx-auto my-4">
+                    <div class="container px-5 mx-auto my-4">
                         <div class="col-form-label col-form-label-lg">
                             <div class="max-w-xl">
                                 @include('profile.partials.update-profile-information-form')

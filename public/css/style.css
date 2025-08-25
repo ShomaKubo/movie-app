@@ -1,7 +1,16 @@
+.top_window {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
 video {
     width: 100%; /* 動画をレスポンシブ化 */
     max-width: 800px;
     max-height: 700px;
+}
+
+.video_style {
+    text-align: -webkit-center;
 }
 
 textarea {
